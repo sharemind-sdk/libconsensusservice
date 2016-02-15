@@ -35,7 +35,7 @@ extern "C" {
 #endif
 
 #ifndef SHAREMIND_ICONST
-#ifdef SHAREMIND_INTERNAL__
+#ifdef SHAREMIND_INTERNAL_
 #define SHAREMIND_ICONST
 #else
 #define SHAREMIND_ICONST const
