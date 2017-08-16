@@ -73,5 +73,4 @@ SET(CPACK_DEBIAN_PACKAGE_DESCRIPTION "Sharemind consensus service development he
 SET(CPACK_DEBIAN_PACKAGE_DEPENDS
     "libc6-dev (>= 2.19), libstdc++-4.8-dev | libstdc++-4.9-dev | libstdc++-5-dev | libstdc++-6-dev | libstdc++-7-dev")
 SET(CPACK_DEBIAN_PACKAGE_SECTION "libdevel")
-SET(CPACK_DEBIAN_PACKAGE_ARCHITECTURE "any")
 INCLUDE(CPack)
