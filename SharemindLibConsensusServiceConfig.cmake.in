@@ -23,6 +23,6 @@
 #   SharemindLibConsensusService_DEFINITIONS  - required compiler definitions
 
 
-SET(SharemindLibConsensusService_INCLUDE_DIRS @LIBCONSENSUSSERVICE_INSTALL_INCLUDE_DIRS@)
-SET(SharemindLibConsensusService_LIBRARIES @LIBCONSENSUSSERVICE_INSTALL_LINK_LIBRARIES@)
-SET(SharemindLibConsensusService_DEFINITIONS @LIBCONSENSUSSERVICE_INSTALL_DEFINITIONS@)
+SET(SharemindLibConsensusService_INCLUDE_DIRS @SharemindLibConsensusService_INSTALL_INCLUDE_DIRS@)
+SET(SharemindLibConsensusService_LIBRARIES @SharemindLibConsensusService_INSTALL_LINK_LIBRARIES@)
+SET(SharemindLibConsensusService_DEFINITIONS @SharemindLibConsensusService_INSTALL_DEFINITIONS@)
