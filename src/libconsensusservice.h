@@ -194,8 +194,6 @@ struct SharemindConsensusFacility_ {
             SharemindConsensusFacility * facility,
             const SharemindOperationType * operationType);
 
-    SHAREMIND_ICONST void * SHAREMIND_ICONST internal;
-
 };
 
 #ifdef __cplusplus
