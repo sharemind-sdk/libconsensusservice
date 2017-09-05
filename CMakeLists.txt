@@ -26,8 +26,6 @@ INCLUDE("${CMAKE_CURRENT_BINARY_DIR}/config.local" OPTIONAL)
 FIND_PACKAGE(SharemindCMakeHelpers REQUIRED)
 
 SharemindSetProjectVersion()
-SET(SharemindLibConsensusService_COMPAT_VERSION
-    "${SharemindLibConsensusService_VERSION}")
 
 
 # Headers:
@@ -41,10 +39,10 @@ INSTALL(FILES ${SharemindLibConsensusService_HEADERS}
 
 
 # Install CMake files:
-SET(SharemindLibConsensusService_INSTALL_INCLUDE_DIRS
-    "${CMAKE_INSTALL_PREFIX}/include"
+SharemindCreateCMakeFindFiles(
+    INCLUDE_DIRS
+        "${CMAKE_INSTALL_PREFIX}/include"
 )
-SharemindUseCMakeFindFiles()
 
 
 # Packaging:
