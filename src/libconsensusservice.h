@@ -137,8 +137,8 @@ struct SharemindConsensusFacility_ {
      * \param sequenceNo the sequence number of the proposal will be
      * written to this location. It can be used to retrieve the
      * operation's result.
-     * \retval SHAREMIND_CONSENSUS_FACILITY_NOT_STARTED if the
-     * consensus service has not been started
+     * \returns SHAREMIND_CONSENSUS_FACILITY_OK if the call was successful, and
+     *          an error code otherwise.
      */
     SharemindConsensusFacilityError
     (* SHAREMIND_ICONST propose)(SharemindConsensusFacility * facility,
@@ -150,16 +150,15 @@ struct SharemindConsensusFacility_ {
 
     /**
      * Propose an operation. Blocks until the operation has
-     * finished. Returns SHAREMIND_CONSENSUS_FACILITY_NOT_STARTED if
-     * the consensus service has not been started yet.
+     * finished.
      * \param facility pointer to this SharemindConsensusFacility object.
      * \param operationType name of the operation type
      * \param size size of operation data in bytes
      * \param data pointer to operation data
      * \param callbackPtr pointer to data that's passed to callback
      * functions of the operation type
-     * \retval returns SHAREMIND_CONSENSUS_FACILITY_OK if the call was
-     * successful
+     * \returns SHAREMIND_CONSENSUS_FACILITY_OK if the call was successful, and
+     *          an error code otherwise.
      */
     SharemindConsensusFacilityError
     (* SHAREMIND_ICONST blocking_propose)(SharemindConsensusFacility * facility,
@@ -171,23 +170,25 @@ struct SharemindConsensusFacility_ {
     /**
      * Check if an asynchronous operation has finished.
      * \param sequenceNo sequence number of the proposal
-     * \retval returns SHAREMIND_CONSENSUS_FACILITY_OK if the
-     * operation has finished on all miners
-     * SHAREMIND_CONSENSUS_FACILITY_AGAIN if the operation has not
-     * finished, SHAREMIND_CONSENSUS_FACILITY_FAIL otherwise
+     * \returns SHAREMIND_CONSENSUS_FACILITY_OK if the call was successful, and
+     *          an error code otherwise. SHAREMIND_CONSENSUS_FACILITY_AGAIN if
+     *          the operation has not yet finished, or
+     *          SHAREMIND_CONSENSUS_FACILITY_FAIL if the operation failed.
      */
     SharemindConsensusFacilityError
     (* SHAREMIND_ICONST done)(SharemindConsensusFacility * facility,
                               uint32_t seq);
 
     /**
-     * Add an operation type. Returns
-     * SHAREMIND_CONSENSUS_FACILITY_BAD_OPERATION_TYPE if the type does not
-     * provide all required methods or
-     * SHAREMIND_CONSENSUS_FACILITY_DUPLICATE_OPERATION_TYPE if a type with the
-     * same name has already been added.
+     * Add an operation type.
      * \param facility pointer to this SharemindConsensusFacility object.
      * \param[in] operationType struct with pointers to the callback methods
+     * \returns SHAREMIND_CONSENSUS_FACILITY_OK if the call was successful, and
+     *          an error code otherwise.
+     *          SHAREMIND_CONSENSUS_FACILITY_BAD_OPERATION_TYPE is returned if
+     *          the type does not provide all required methods, and
+     *          SHAREMIND_CONSENSUS_FACILITY_DUPLICATE_OPERATION_TYPE is
+     *          returned if a type with the same name has already been added.
      */
     SharemindConsensusFacilityError
     (* SHAREMIND_ICONST add_operation_type)(
