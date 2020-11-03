@@ -51,10 +51,6 @@ SharemindAddComponentPackage(dev
     DEB_SECTION "libdevel"
     DEB_DEPENDS
         "libc6-dev (>= 2.19)"
-        "libstdc++-4.8-dev"
-        "| libstdc++-4.9-dev"
-        "| libstdc++-5-dev"
-        "| libstdc++-6-dev"
-        "| libstdc++-7-dev"
+        "libstdc++-dev"
 )
 SharemindPackagingFinalize()
