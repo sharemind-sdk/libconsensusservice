@@ -23,10 +23,10 @@ PROJECT(SharemindLibConsensusService VERSION 0.1.3 LANGUAGES C CXX)
 INCLUDE("${CMAKE_CURRENT_SOURCE_DIR}/config.local" OPTIONAL)
 INCLUDE("${CMAKE_CURRENT_BINARY_DIR}/config.local" OPTIONAL)
 
-FIND_PACKAGE(SharemindCMakeHelpers 1.3 REQUIRED)
+FIND_PACKAGE(SharemindCMakeHelpers 1.6 REQUIRED)
 
 
-# Headers:
+# LibConsensusService:
 FILE(GLOB_RECURSE SharemindLibConsensusService_HEADERS
      "${CMAKE_CURRENT_SOURCE_DIR}/src/*.h")
 ADD_CUSTOM_TARGET("include_SharemindLibConsensusService_headers_in_IDE"
@@ -34,13 +34,13 @@ ADD_CUSTOM_TARGET("include_SharemindLibConsensusService_headers_in_IDE"
 INSTALL(FILES ${SharemindLibConsensusService_HEADERS}
         DESTINATION "include/sharemind"
         COMPONENT "dev")
-
-
-# Install CMake files:
-SharemindCreateCMakeFindFiles(
-    INCLUDE_DIRS
-        "${CMAKE_INSTALL_PREFIX}/include"
-)
+SharemindAddInterfaceLibrary(LibConsensusService)
+TARGET_INCLUDE_DIRECTORIES(LibConsensusService
+    INTERFACE
+        # $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src> # TODO
+        $<INSTALL_INTERFACE:${CMAKE_INSTALL_PREFIX}/include>
+    )
+SharemindCreateCMakeFindFilesForTarget(LibConsensusService)
 
 
 # Packaging:
