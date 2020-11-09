@@ -29,12 +29,11 @@ FIND_PACKAGE(SharemindCMakeHelpers 1.6 REQUIRED)
 # LibConsensusService:
 FILE(GLOB_RECURSE SharemindLibConsensusService_HEADERS
      "${CMAKE_CURRENT_SOURCE_DIR}/src/*.h")
-ADD_CUSTOM_TARGET("include_SharemindLibConsensusService_headers_in_IDE"
-                  SOURCES ${SharemindLibConsensusService_HEADERS})
 INSTALL(FILES ${SharemindLibConsensusService_HEADERS}
         DESTINATION "include/sharemind"
         COMPONENT "dev")
-SharemindAddInterfaceLibrary(LibConsensusService)
+SharemindAddInterfaceLibrary(LibConsensusService
+    EXPOSE_FILES ${SharemindLibConsensusService_HEADERS})
 TARGET_INCLUDE_DIRECTORIES(LibConsensusService
     INTERFACE
         # $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src> # TODO
