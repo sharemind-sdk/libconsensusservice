@@ -37,7 +37,7 @@ SharemindAddInterfaceLibrary(LibConsensusService
 TARGET_INCLUDE_DIRECTORIES(LibConsensusService
     INTERFACE
         # $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src> # TODO
-        $<INSTALL_INTERFACE:${CMAKE_INSTALL_PREFIX}/include>
+        $<INSTALL_INTERFACE:include>
     )
 SharemindCreateCMakeFindFilesForTarget(LibConsensusService)
 
