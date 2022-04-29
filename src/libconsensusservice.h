@@ -169,6 +169,7 @@ struct SharemindConsensusFacility_ {
 
     /**
      * Check if an asynchronous operation has finished.
+     * \param facility pointer to this SharemindConsensusFacility object.
      * \param sequenceNo sequence number of the proposal
      * \returns SHAREMIND_CONSENSUS_FACILITY_OK if the call was successful, and
      *          an error code otherwise. SHAREMIND_CONSENSUS_FACILITY_AGAIN if
@@ -177,7 +178,7 @@ struct SharemindConsensusFacility_ {
      */
     SharemindConsensusFacilityError
     (* SHAREMIND_ICONST done)(SharemindConsensusFacility * facility,
-                              uint32_t seq);
+                              uint32_t sequenceNo);
 
     /**
      * Add an operation type.
